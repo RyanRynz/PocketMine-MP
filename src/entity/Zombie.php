@@ -38,12 +38,7 @@ class Zombie extends Living{
 
     protected function initEntity(CompoundTag $nbt) : void{
         parent::initEntity($nbt);
-        
-        // Properti zombie dari NBT
         $this->isBaby = $nbt->getByte("IsBaby", 0) === 1;
-        $this->canBreakDoors = $nbt->getByte("CanBreakDoors", mt_rand(0, 1)) === 1;
-        
-        // Kecepatan berdasarkan jenis zombie
         $this->setMovementSpeed($this->isBaby ? 0.5 : 0.23);
     }
 
